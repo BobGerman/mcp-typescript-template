@@ -1,11 +1,14 @@
 import { z } from "zod";
-import type { Tool } from "./tool.ts";
+import type { ToolDefinition } from "./toolDefinition.ts";
+import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { logger } from "../logger.ts";
 import { createTextResult } from "../lib/utils.ts";
 
-const name = "echo";
-export const echoTool: Tool = {
-    name,
+const TOOL_NAME = "echo";
+
+// Define the Echo tool
+const tool: ToolDefinition = {
+    name: TOOL_NAME,
     title: "Echo",
     description: "Echo back the provided message",
     inputSchema: z.object({
@@ -19,26 +22,29 @@ export const echoTool: Tool = {
         idempotentHint: true,
         openWorldHint: false,
     },
-    implementation: async (server, args, extra) => {
-        const { message } = args;
-        try {
-            await server.sendLoggingMessage({
-                level: "debug",
-                data: { message: args.message },
-                logger: "echo",
-            });
-        } catch (error) {
-            // Log notification failures must not prevent the tool from responding.
-            logger.debug(
-                { error: error instanceof Error ? error.message : String(error) },
-                "Failed to send MCP log notification",
-            );
-        }
-
-        const data = { echo: args.message };
-        logger.info({ data, sessionId: extra.sessionId, requestId: extra.requestId },
-            `${name}Tool executed`);
-        return createTextResult(data);
-
-    }
+    implementation
 }
+
+// Code to run when the tool is executed
+async function implementation(server: McpServer, args: any, extra: { sessionId?: string; requestId: unknown }): Promise<any> {
+    try {
+        await server.sendLoggingMessage({
+            level: "debug",
+            data: { message: args.message },
+            logger: "echo",
+        });
+    } catch (error) {
+        // Log notification failures must not prevent the tool from responding.
+        logger.debug(
+            { error: error instanceof Error ? error.message : String(error) },
+            "Failed to send MCP log notification",
+        );
+    }
+
+    const data = { echo: args.message };
+    logger.info({ data, sessionId: extra.sessionId, requestId: extra.requestId },
+        `${TOOL_NAME}Tool executed`);
+    return createTextResult(data);
+}
+
+export default tool;

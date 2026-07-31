@@ -1,11 +1,11 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import type { Tool } from "./tools/tool.ts";
+import type { ToolDefinition } from "./tools/toolDefinition.ts";
 
 // Tools to register:
-import { echoTool } from "./tools/echo.ts";
+import tool from "./tools/echo.ts";
 
-const tools: Tool[] = [
-  echoTool,
+const tools: ToolDefinition[] = [
+  tool,
 ];
 
 // Register all tools with the MCP server. This function is called during server initialization.
@@ -16,7 +16,7 @@ export function registerTools(server: McpServer): void {
 }
 
 // Register a single tool with the MCP server.
-function registerTool(server: McpServer, tool: Tool): void {
+function registerTool(server: McpServer, tool: ToolDefinition): void {
   server.registerTool(
     tool.name,
     {

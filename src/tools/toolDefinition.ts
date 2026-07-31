@@ -1,7 +1,7 @@
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
-export interface Tool {
+export interface ToolDefinition {
     name: string;
     title: string;
     description: string;
