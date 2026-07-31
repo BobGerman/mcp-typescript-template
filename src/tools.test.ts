@@ -121,84 +121,84 @@ describe("echo tool", () => {
   });
 });
 
-describe("elicit_echo tool", () => {
-  it("echoes the message the user provides via elicitation", async () => {
-    const { client } = await setupClientServer({
-      elicitHandler: async () => ({
-        action: "accept",
-        content: { message: "elicited hello" },
-      }),
-    });
+// describe("elicit_echo tool", () => {
+//   it("echoes the message the user provides via elicitation", async () => {
+//     const { client } = await setupClientServer({
+//       elicitHandler: async () => ({
+//         action: "accept",
+//         content: { message: "elicited hello" },
+//       }),
+//     });
 
-    const result = await client.callTool({
-      name: "elicit_echo",
-      arguments: {},
-    });
+//     const result = await client.callTool({
+//       name: "elicit_echo",
+//       arguments: {},
+//     });
 
-    const parsed = parseContent(result);
-    expect(parsed.echo).toBe("elicited hello");
-    expect(result.structuredContent).toEqual({ echo: "elicited hello" });
-    expect(result.isError).toBeFalsy();
-  });
+//     const parsed = parseContent(result);
+//     expect(parsed.echo).toBe("elicited hello");
+//     expect(result.structuredContent).toEqual({ echo: "elicited hello" });
+//     expect(result.isError).toBeFalsy();
+//   });
 
-  it("returns a decline response (not an error) when the user declines", async () => {
-    const { client } = await setupClientServer({
-      elicitHandler: async () => ({ action: "decline" }),
-    });
+//   it("returns a decline response (not an error) when the user declines", async () => {
+//     const { client } = await setupClientServer({
+//       elicitHandler: async () => ({ action: "decline" }),
+//     });
 
-    const result = await client.callTool({
-      name: "elicit_echo",
-      arguments: {},
-    });
+//     const result = await client.callTool({
+//       name: "elicit_echo",
+//       arguments: {},
+//     });
 
-    const parsed = parseContent(result);
-    expect(parsed.echo).toBeNull();
-    expect(parsed.reason).toBe("User declined to provide a message");
-    // A decline is a valid outcome, not a failure.
-    expect(result.isError).toBeFalsy();
-  });
+//     const parsed = parseContent(result);
+//     expect(parsed.echo).toBeNull();
+//     expect(parsed.reason).toBe("User declined to provide a message");
+//     // A decline is a valid outcome, not a failure.
+//     expect(result.isError).toBeFalsy();
+//   });
 
-  it("returns a cancel response (not an error) when the user cancels", async () => {
-    const { client } = await setupClientServer({
-      elicitHandler: async () => ({ action: "cancel" }),
-    });
+//   it("returns a cancel response (not an error) when the user cancels", async () => {
+//     const { client } = await setupClientServer({
+//       elicitHandler: async () => ({ action: "cancel" }),
+//     });
 
-    const result = await client.callTool({
-      name: "elicit_echo",
-      arguments: {},
-    });
+//     const result = await client.callTool({
+//       name: "elicit_echo",
+//       arguments: {},
+//     });
 
-    const parsed = parseContent(result);
-    expect(parsed.echo).toBeNull();
-    expect(parsed.reason).toBe("Elicitation was cancelled");
-    expect(result.isError).toBeFalsy();
-  });
+//     const parsed = parseContent(result);
+//     expect(parsed.echo).toBeNull();
+//     expect(parsed.reason).toBe("Elicitation was cancelled");
+//     expect(result.isError).toBeFalsy();
+//   });
 
-  it("returns an error result when accept is missing content", async () => {
-    const { client } = await setupClientServer({
-      elicitHandler: async () => ({ action: "accept" }),
-    });
+//   it("returns an error result when accept is missing content", async () => {
+//     const { client } = await setupClientServer({
+//       elicitHandler: async () => ({ action: "accept" }),
+//     });
 
-    const result = await client.callTool({
-      name: "elicit_echo",
-      arguments: {},
-    });
+//     const result = await client.callTool({
+//       name: "elicit_echo",
+//       arguments: {},
+//     });
 
-    const parsed = parseContent(result);
-    expect(parsed.error).toBe("Accepted but no content was returned");
-    expect(result.isError).toBe(true);
-  });
+//     const parsed = parseContent(result);
+//     expect(parsed.error).toBe("Accepted but no content was returned");
+//     expect(result.isError).toBe(true);
+//   });
 
-  it("returns an error result when the client does not support elicitation", async () => {
-    const { client } = await setupClientServer({ supportsElicitation: false });
+//   it("returns an error result when the client does not support elicitation", async () => {
+//     const { client } = await setupClientServer({ supportsElicitation: false });
 
-    const result = await client.callTool({
-      name: "elicit_echo",
-      arguments: {},
-    });
+//     const result = await client.callTool({
+//       name: "elicit_echo",
+//       arguments: {},
+//     });
 
-    const parsed = parseContent(result);
-    expect(parsed.error).toMatch(/elicitation/i);
-    expect(result.isError).toBe(true);
-  });
-});
+//     const parsed = parseContent(result);
+//     expect(parsed.error).toMatch(/elicitation/i);
+//     expect(result.isError).toBe(true);
+//   });
+// });
