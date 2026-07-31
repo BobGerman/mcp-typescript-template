@@ -1,11 +1,11 @@
 import { z } from "zod";
 import type { Tool } from "./tool.ts";
-import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { logger } from "../logger.ts";
-import { createErrorResult, createTextResult } from "../lib/utils.ts";
+import { createTextResult } from "../lib/utils.ts";
 
+const name = "echo";
 export const echoTool: Tool = {
-    name: "echo",
+    name,
     title: "Echo",
     description: "Echo back the provided message",
     inputSchema: z.object({
@@ -36,7 +36,8 @@ export const echoTool: Tool = {
         }
 
         const data = { echo: args.message };
-        //   logger.info({ "echo", extra.sessionId, requestId }, "Tool executed");
+        logger.info({ data, sessionId: extra.sessionId, requestId: extra.requestId },
+            `${name}Tool executed`);
         return createTextResult(data);
 
     }
