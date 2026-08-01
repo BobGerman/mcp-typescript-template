@@ -2,10 +2,12 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { ToolDefinition } from "./tools/toolDefinition.ts";
 
 // Tools to register:
-import tool from "./tools/echo.ts";
+import echoTool from "./tools/echo.ts";
+import codeCampSessionsTool from "./tools/codeCampSessions.ts";
 
 const tools: ToolDefinition[] = [
-  tool,
+  echoTool,
+  codeCampSessionsTool,
 ];
 
 // Register all tools with the MCP server. This function is called during server initialization.

@@ -1,0 +1,142 @@
+[
+    {
+        "title": "Computing Machinery and Intelligence",
+        "speaker": "Alan Turing",
+        "startTime": "09:00",
+        "room": "Adams",
+        "abstract": "Exploring the question of whether machines can think, introducing the Turing Test and foundational concepts in artificial intelligence."
+    },
+    {
+        "title": "Breaking the Code: Enigma and Beyond",
+        "speaker": "Alan Turing",
+        "startTime": "14:00",
+        "room": "Monroe",
+        "abstract": "A deep dive into cryptographic techniques used during World War II and their impact on modern computer security."
+    },
+    {
+        "title": "COBOL: Business Applications Made Simple",
+        "speaker": "Grace Hopper",
+        "startTime": "10:00",
+        "room": "Jefferson",
+        "abstract": "Discover how COBOL brought programming to business applications and why it remains relevant in legacy systems today."
+    },
+    {
+        "title": "From Programming to Problem Solving",
+        "speaker": "Grace Hopper",
+        "startTime": "15:30",
+        "room": "Washington",
+        "abstract": "Lessons from the pioneer who popularized the concept of compiler and fought for user-friendly programming languages."
+    },
+    {
+        "title": "The Art of Computer Programming: A Retrospective",
+        "speaker": "Donald Knuth",
+        "startTime": "11:00",
+        "room": "Cranmore",
+        "abstract": "Reflections on the multi-decade journey of creating the definitive reference on algorithms and programming techniques."
+    },
+    {
+        "title": "TeX: A Framework for Document Preparation",
+        "speaker": "Donald Knuth",
+        "startTime": "16:00",
+        "room": "Adams",
+        "abstract": "Learn about the algorithmic approach to typesetting and why perfection matters in technical documentation."
+    },
+    {
+        "title": "Analytical Engine: The First Computer",
+        "speaker": "Ada Lovelace",
+        "startTime": "09:30",
+        "room": "Monroe",
+        "abstract": "Exploring Ada Lovelace's notes on Babbage's machine and why she's credited as the first computer programmer."
+    },
+    {
+        "title": "Punch Cards and Patterns: Early Data Processing",
+        "speaker": "Ada Lovelace",
+        "startTime": "13:00",
+        "room": "Jefferson",
+        "abstract": "How 19th-century mechanical computation laid the groundwork for modern software development practices."
+    },
+    {
+        "title": "The World Wide Web: From Concept to Reality",
+        "speaker": "Tim Berners-Lee",
+        "startTime": "10:30",
+        "room": "Washington",
+        "abstract": "How a simple proposal evolved into the global information system that connects billions of people today."
+    },
+    {
+        "title": "Decentralized Web: A Vision for the Future",
+        "speaker": "Tim Berners-Lee",
+        "startTime": "16:30",
+        "room": "Cranmore",
+        "abstract": "Addressing the challenges of centralization and exploring protocols for a more open, user-controlled web."
+    },
+    {
+        "title": "Liskov Substitution Principle in Practice",
+        "speaker": "Barbara Liskov",
+        "startTime": "11:30",
+        "room": "Adams",
+        "abstract": "Understanding object-oriented design principles that make code more maintainable and extensible."
+    },
+    {
+        "title": "Building Reliable Distributed Systems",
+        "speaker": "Barbara Liskov",
+        "startTime": "14:30",
+        "room": "Jefferson",
+        "abstract": "Lessons from the development of Argus and techniques for building fault-tolerant computer systems."
+    },
+    {
+        "title": "Smalltalk: Objects as the Future of Computing",
+        "speaker": "Alan Kay",
+        "startTime": "09:45",
+        "room": "Monroe",
+        "abstract": "How Smalltalk's object-oriented approach influenced modern programming languages and development environments."
+    },
+    {
+        "title": "Dynabook: A Personal Computer for Children of All Ages",
+        "speaker": "Alan Kay",
+        "startTime": "15:00",
+        "room": "Washington",
+        "abstract": "Visionary ideas about personal computing, educational technology, and what computers should be."
+    },
+    {
+        "title": "Go To Statement Considered Harmful",
+        "speaker": "Edsger Dijkstra",
+        "startTime": "12:00",
+        "room": "Cranmore",
+        "abstract": "Why structured programming matters and how to write clearer, more correct code without GOTO."
+    },
+    {
+        "title": "The Humble Programmer",
+        "speaker": "Edsger Dijkstra",
+        "startTime": "13:30",
+        "room": "Adams",
+        "abstract": "Reflections on the art of programming and why precision, correctness, and mathematical rigor matter."
+    },
+    {
+        "title": "Artificial Intelligence: A New Branch of Computer Science",
+        "speaker": "John McCarthy",
+        "startTime": "10:00",
+        "room": "Jefferson",
+        "abstract": "Foundational concepts in AI and the history of how it became a distinct field of study."
+    },
+    {
+        "title": "LISP: Programming by Symbol Manipulation",
+        "speaker": "John McCarthy",
+        "startTime": "16:00",
+        "room": "Washington",
+        "abstract": "Why LISP remains influential and how functional programming concepts solve complex problems elegantly."
+    },
+    {
+        "title": "Chirped Pulse Amplification: Making Ultra-Intense Lasers Possible",
+        "speaker": "Donna Strickland",
+        "startTime": "11:00",
+        "room": "Monroe",
+        "abstract": "The breakthrough technique that enabled high-intensity, ultra-short optical pulses and their applications."
+    },
+    {
+        "title": "Optics in Computing: From Fiber to Photonics",
+        "speaker": "Donna Strickland",
+        "startTime": "14:00",
+        "room": "Cranmore",
+        "abstract": "How laser physics advances are enabling faster, more efficient computing systems."
+    }
+]
