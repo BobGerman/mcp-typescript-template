@@ -30,19 +30,6 @@ const tool: ToolDefinition = {
 
 // Code to run when the tool is executed
 async function implementation(server: McpServer, args: any, extra: { sessionId?: string; requestId: unknown }): Promise<any> {
-    try {
-        await server.sendLoggingMessage({
-            level: "debug",
-            data: { searchQuery: args.searchQuery },
-            logger: "codeCampSessions",
-        });
-    } catch (error) {
-        // Log notification failures must not prevent the tool from responding.
-        logger.debug(
-            { error: error instanceof Error ? error.message : String(error) },
-            "Failed to send MCP log notification",
-        );
-    }
 
     const searchQuery = args.searchQuery.toLowerCase();
     const data = sessions
