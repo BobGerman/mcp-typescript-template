@@ -8,7 +8,7 @@ import {
   type ElicitResult,
 } from "@modelcontextprotocol/sdk/types.js";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { registerTools } from "./tools.ts";
+import { registerPrimitives } from "./tools.ts";
 
 type TestHarness = {
   client: Client;
@@ -48,7 +48,7 @@ async function setupClientServer(options: SetupOptions = {}) {
     { name: "test-server", version: "0.0.0" },
     { capabilities: { logging: {} } },
   );
-  registerTools(server);
+  registerPrimitives(server);
 
   const [clientTransport, serverTransport] = InMemoryTransport.createLinkedPair();
 
