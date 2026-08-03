@@ -1,6 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { ToolDefinition } from "./primitiveDefinitions.ts";
-import type { ResourceDefinition } from "./resources/resourceDefinition.ts";
+import type { ResourceDefinition } from "./primitiveDefinitions.ts";
 import { logger } from "./logger.ts";
 
 // Primitives to register:
