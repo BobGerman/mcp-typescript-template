@@ -1,6 +1,6 @@
-import type { ResourceDefinition } from './resourceDefinition.ts';
+import type { ResourceDefinition } from '../primitiveDefinitions.ts';
 
-export const RelatedInfoResource: ResourceDefinition = {
+const resource: ResourceDefinition = {
     name: 'relatedInfo',
     uri: 'info://relatedInfo',
     title: 'Related Information',
@@ -9,3 +9,5 @@ export const RelatedInfoResource: ResourceDefinition = {
         This is a simple related information resource.
     `
 };
+
+export default resource;

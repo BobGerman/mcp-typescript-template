@@ -1,20 +1,21 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import type { ToolDefinition } from "./tools/toolDefinition.ts";
+import type { ToolDefinition } from "./primitiveDefinitions.ts";
 import type { ResourceDefinition } from "./resources/resourceDefinition.ts";
 import { logger } from "./logger.ts";
 
-// Tools to register:
-import tool from "./tools/echo.ts";
-import { RelatedInfoResource } from "./resources/relatedInfo.ts";
+// Primitives to register:
+import echoTool from "./tools/echoTool.ts";
+import relatedInfoResource from "./resources/relatedInfoResource.ts";
 
 const tools: ToolDefinition[] = [
-  tool,
+  echoTool,
 ];
 const resources = [
-  RelatedInfoResource,
+  relatedInfoResource,
 ];
 
-// Register all tools with the MCP server. This function is called during server initialization.
+// Register all primitives with the MCP server.
+// This function is called during server initialization.
 export function registerPrimitives(server: McpServer): void {
   for (const tool of tools) {
     registerTool(server, tool);
@@ -42,11 +43,9 @@ function registerResource(server: McpServer, resource: ResourceDefinition): void
         contents: [{ uri: uri.href, text: resource.text }],
       };
     }
-    // async uri => ({
-    //   contents: [{ uri: uri.href, text: resource.text }],
-    // })
   );
 }
+
 // Register a single tool with the MCP server.
 function registerTool(server: McpServer, tool: ToolDefinition): void {
   server.registerTool(

@@ -5,7 +5,7 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js";
 import { logger } from "./logger.ts";
 import { getConfig } from "./config.ts";
-import { registerPrimitives } from "./tools.ts";
+import { registerPrimitives } from "./primitiveSetup.ts";
 
 const getServer = () => {
   const config = getConfig();

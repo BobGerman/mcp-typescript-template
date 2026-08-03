@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { ToolDefinition } from "./toolDefinition.ts";
+import type { ToolDefinition } from "../primitiveDefinitions.ts";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { logger } from "../logger.ts";
 import { createTextResult } from "../lib/utils.ts";
