@@ -5,13 +5,13 @@ import { logger } from "./logger.ts";
 
 // Tools to register:
 import tool from "./tools/echo.ts";
-import { secretMessageResource } from "./resources/secretMessageResource.ts";
+import { RelatedInfoResource } from "./resources/relatedInfo.ts";
 
 const tools: ToolDefinition[] = [
   tool,
 ];
 const resources = [
-  secretMessageResource,
+  RelatedInfoResource,
 ];
 
 // Register all tools with the MCP server. This function is called during server initialization.
