@@ -8,7 +8,7 @@ import {
   type ElicitResult,
 } from "@modelcontextprotocol/sdk/types.js";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { registerPrimitives } from "./mcpPrimitives.ts";
+import { registerPrimitives } from "./registerPrimitves.ts";
 
 type TestHarness = {
   client: Client;
