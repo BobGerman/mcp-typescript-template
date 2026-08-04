@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Alan Turing",
+    "title": "Computer Science Pioneer",
+    "description": "British mathematician and logician who pioneered the concepts of algorithms and computation with the Turing machine.",
+    "twitter": "@alan_turing"
+  },
+  {
+    "name": "Grace Hopper",
+    "title": "Computer Programming Pioneer",
+    "description": "American computer scientist and United States Navy rear admiral who developed one of the first programming languages, COBOL.",
+    "twitter": "@grace_hopper"
+  },
+  {
+    "name": "Donald Knuth",
+    "title": "Author of The Art of Computer Programming",
+    "description": "Computer scientist known for his multi-volume work on algorithms and the TeX typesetting system.",
+    "twitter": "@donald_knuth"
+  },
+  {
+    "name": "Ada Lovelace",
+    "title": "First Computer Programmer",
+    "description": "English mathematician and writer, considered the first computer programmer for her work on Charles Babbage's Analytical Engine.",
+    "twitter": "@ada_lovelace"
+  },
+  {
+    "name": "Tim Berners-Lee",
+    "title": "Inventor of the World Wide Web",
+    "description": "English computer scientist who invented the World Wide Web, creating the first web browser and server.",
+    "twitter": "@timberners_lee"
+  },
+  {
+    "name": "Barbara Liskov",
+    "title": "Programming Language Designer",
+    "description": "Computer scientist known for the Liskov substitution principle, data abstraction, and theCLU and Argus programming languages.",
+    "twitter": "@barbara_liskov"
+  },
+  {
+    "name": "Alan Kay",
+    "title": "Object-Oriented Programming Advocate",
+    "description": "Computer scientist known for his work on object-oriented programming and the Smalltalk programming language.",
+    "twitter": "@alan_kay"
+  },
+  {
+    "name": "Edsger Dijkstra",
+    "title": "Algorithms and Concurrency Researcher",
+    "description": "Dutch computer scientist who made contributions to algorithms, concurrency, and the formal verification of programs.",
+    "twitter": "@edsger_dijkstra"
+  },
+  {
+    "name": "John McCarthy",
+    "title": "Father of Artificial Intelligence",
+    "description": "American computer scientist and cognitive scientist who coined the term 'artificial intelligence' and created LISP.",
+    "twitter": "@john_mccarthy"
+  },
+  {
+    "name": "Donna Strickland",
+    "title": "Laser Physics Researcher",
+    "description": "Canadian physicist and Nobel laureate whose work on chirped pulse amplification revolutionized laser physics.",
+    "twitter": "@donna_strickland"
+  }
+]

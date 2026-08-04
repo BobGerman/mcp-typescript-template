@@ -10,10 +10,6 @@ type SendLoggingMessageFn = (params: {
     logger?: string;
 }) => Promise<void>;
 
-/**
- * Registers all MCP tools on the server.
- * Called once per session from getServer() in src/index.ts.
- */
 export default function register(server: McpServer): void {
 
     server.registerTool(
