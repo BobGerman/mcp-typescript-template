@@ -19,7 +19,7 @@ export default function register(server: McpServer): void {
                 searchQuery: z.string().optional().describe("The search query for finding speakers, or 'all' to list all the speakers."),
             },
             outputSchema: {
-                sessions: z.string().describe("The list of found speakers"),
+                speakers: z.string().describe("The list of found speakers"),
             },
             annotations: {
                 readOnlyHint: true,
@@ -52,5 +52,5 @@ async function runTool(server: McpServer, args: any, extra: { sessionId?: string
     }
     logger.info({ data, sessionId: extra.sessionId, requestId: extra.requestId },
         `${TOOL_NAME} Tool executed query ${args.searchQuery} and got ${data.length} results`);
-    return createTextResult({ sessions: JSON.stringify(data) });
+    return createTextResult({ speakers: JSON.stringify(data) });
 }

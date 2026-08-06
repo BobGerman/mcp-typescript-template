@@ -14,7 +14,7 @@ export default function register(server: McpServer): void {
         "bostonCodeCampSessions",
         {
             title: "Boston CodeCamp Sessions",
-            description: "Retrieve information about Boston CodeCamp sessions",
+            description: "Retrieve information about Boston CodeCamp sessions.",
             inputSchema: {
                 searchQuery: z.string().optional().describe("The search query for finding sessions"),
             },

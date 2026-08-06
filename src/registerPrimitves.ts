@@ -4,8 +4,8 @@ import registerEchoTool from "./tools/echo.ts";
 import registerElicitEchoTool from "./tools/elicitEcho.ts";
 import registerCodeCampSessionsTool from "./tools/codeCampSessions.ts";
 import registerCodeCampSpeakersTool from "./tools/codeCampSpeakers.ts";
+import registerCodeCampGeneralInfoTool from "./tools/codeCampGeneralInfo.ts";
 import registerBackgroundInfoResource from "./resources/backgroundInfo.ts";
-import registerCodeCampResources from "./resources/codeCampResources.ts";
 
 /**
  * Registers all MCP tools on the server.
@@ -14,12 +14,12 @@ import registerCodeCampResources from "./resources/codeCampResources.ts";
 export function registerPrimitives(server: McpServer): void {
 
   // Tools
-  registerEchoTool(server);
-  registerElicitEchoTool(server);
+  // registerEchoTool(server);
+  // registerElicitEchoTool(server);
   registerCodeCampSessionsTool(server);
   registerCodeCampSpeakersTool(server);
+  registerCodeCampGeneralInfoTool(server);
 
   // Resources
   // registerBackgroundInfoResource(server);
-  registerCodeCampResources(server);
 }

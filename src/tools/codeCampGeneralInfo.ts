@@ -1,6 +1,9 @@
+import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { logger } from "../logger.ts";
+import { createTextResult } from "../lib/utils.ts";
 
+const TOOL_NAME = "bostonCodeCampGeneralInfo";
 const TEXT = `
 Boston CodeCamp is a community-driven event that brings together
 developers, designers, and tech enthusiasts to share knowledge,
@@ -21,25 +24,28 @@ web site at https://www.bostoncodecamp.com/.
 
 export default function register(server: McpServer): void {
 
-    const NAME = "backgroundInfo";
-    const URI = "info://backgroundInfo";
-
-    server.registerResource(
-        NAME, URI,
+    server.registerTool(
+        "bostonCodeCampGeneralInfo",
         {
-            title: "Background Information",
-            description: "General information about this mcp server",
-            mimeType: "text/plain",
+            title: "Boston CodeCamp General Information",
+            description: "Retrieve an overview of the conference, website location, date, and location.",
+            inputSchema: {},
+            outputSchema: {
+                info: z.string().describe("General Information about Boston Code Camp"),
+            },
+            annotations: {
+                readOnlyHint: true,
+                idempotentHint: true,
+                openWorldHint: false,
+            },
         },
-        async (uri) => {
-            logger.info({ resourceName: NAME, resourceUri: URI },
-                "Resource requested");
-            return {
-                contents: [{
-                    uri: uri.href,
-                    text: TEXT
-                }],
-            };
-        }
+        (args, extra) => runTool(server, args, extra),
     );
+}
+
+// Code to run when the tool is executed
+async function runTool(server: McpServer, args: any, extra: { sessionId?: string; requestId: unknown }): Promise<any> {
+
+    logger.info(`Called General Information tool`);
+    return createTextResult({ info: TEXT });
 }
