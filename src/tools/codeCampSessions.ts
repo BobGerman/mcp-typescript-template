@@ -15,10 +15,6 @@ export default function register(server: McpServer): void {
         {
             title: "Boston CodeCamp Sessions",
             description: "Retrieve information about Boston CodeCamp sessions",
-            // Tool *input* is declared with a Zod schema — the SDK compiles it to
-            // JSON Schema and validates incoming args for us. (Contrast with the
-            // elicitation `requestedSchema` in elicitEcho, which must be hand-written
-            // JSON Schema; see the comment there.)
             inputSchema: {
                 searchQuery: z.string().describe("The search query for finding sessions"),
             },
@@ -31,13 +27,12 @@ export default function register(server: McpServer): void {
                 openWorldHint: false,
             },
         },
-        (args, extra) => implementation(server, args, extra),
+        (args, extra) => runTool(server, args, extra),
     );
 }
 
-
 // Code to run when the tool is executed
-async function implementation(server: McpServer, args: any, extra: { sessionId?: string; requestId: unknown }): Promise<any> {
+async function runTool(server: McpServer, args: any, extra: { sessionId?: string; requestId: unknown }): Promise<any> {
 
     const searchQuery = args.searchQuery.toLowerCase();
     const data = sessions
