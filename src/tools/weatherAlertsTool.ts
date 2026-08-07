@@ -30,9 +30,6 @@ export default function register(server: McpServer): void {
                     .length(2)
                     .describe("Two-letter state code (e.g. CA, NY)"),
             }),
-            outputSchema: {
-                echo: z.string().describe("Weather alerts, if any, for the state"),
-            },
             annotations: {
                 readOnlyHint: true,
                 idempotentHint: true,
@@ -49,8 +46,10 @@ async function callWeatherService(
     args: { state: string },
     extra: { sessionId?: string; requestId: unknown },
 ): Promise<CallToolResult> {
+
     const toolName = "getAlerts";
     const { sessionId, requestId } = extra;
+
     // Example: send an MCP log notification to the client. The client
     // controls which levels it receives via logging/setLevel.
     // See: https://modelcontextprotocol.io/specification/2025-06-18/server/utilities/logging
@@ -68,7 +67,7 @@ async function callWeatherService(
         );
     }
 
-    const data = await getAlerts(args?.state);  // { echo: args.message };
-    logger.info({ toolName, sessionId, requestId }, "Tool executed");
+    const data = { alerts: await getAlerts(args?.state) };  // { echo: args.message };
+    logger.info({ toolName, sessionId, requestId }, `Alerts tool executed ${JSON.stringify(data)}`);
     return createTextResult(data);
 }

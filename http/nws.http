@@ -1,0 +1,18 @@
+# National Weather Service free API
+
+# Manchester, NH
+@area=NH
+@lat=42.9956
+@lon=-71.4548
+
+## Get alerts
+GET https://api.weather.gov/alerts?area={{area}}
+User-Agent: "weather-app/1.0"
+Accept: "application/geo+json",
+###
+
+## Get forecast
+GET https://api.weather.gov/points/{{lat}},{{lon}}
+User-Agent: "weather-app/1.0"
+Accept: "application/geo+json",
+###

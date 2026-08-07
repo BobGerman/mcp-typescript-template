@@ -1,3 +1,4 @@
+import { logger } from "../logger.ts";
 
 const NWS_API_BASE = "https://api.weather.gov";
 const USER_AGENT = "weather-app/1.0";
@@ -72,6 +73,7 @@ interface ForecastResponse {
 export async function getAlerts(state: string) {
     const stateCode = state.toUpperCase();
     const alertsUrl = `${NWS_API_BASE}/alerts?area=${stateCode}`;
+    logger.info(`CALLING URL ${alertsUrl}`);
     const alertsData = await makeNWSRequest<AlertsResponse>(alertsUrl);
 
     if (!alertsData) {
@@ -115,7 +117,9 @@ export async function getForecast(
     longitude: string | number) {
 
     // Get grid point data
-    const pointsUrl = `${NWS_API_BASE}/points/${latitude.toFixed(4)},${longitude.toFixed(4)}`;
+    // latitude = latitude.toString();
+    // longitude = longitude.toString();
+    const pointsUrl = `${NWS_API_BASE}/points/${latitude},${longitude}`;
     const pointsData = await makeNWSRequest<PointsResponse>(pointsUrl);
 
     if (!pointsData) {
